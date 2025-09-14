@@ -1,0 +1,15 @@
+name = "countdowns-cloudflare"
+main = "src/index.mjs"
+compatibility_date = "2023-11-21" # Or your project's date
+
+# The account_id will be sourced from the CLOUDFLARE_ACCOUNT_ID var
+account_id = "${CLOUDFLARE_ACCOUNT_ID}"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "countdowns-db"
+# The database_id will be sourced from the D1_DATABASE_ID var
+database_id = "${D1_DATABASE_ID}"
+
+[site]
+bucket = "./public"

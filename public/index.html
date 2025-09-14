@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Countdowns</title>
+<link rel="stylesheet" href="/style.css">
+</head><body><div class="wrap">
+  <header class="card pad">
+    <h1>Countdowns</h1>
+    <p>Sign in to manage your personal countdowns. Date-only shows days; date+time shows d hh mm ss.</p>
+  </header>
+
+  <section id="auth-card" class="card pad">
+    <div class="row" style="justify-content:space-between;align-items:flex-end">
+      <div style="max-width:480px;flex:1">
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:8px">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" autocomplete="username">
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="min 8 chars" autocomplete="current-password">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <button id="login" class="btn primary">Log in</button>
+        <button id="signup" class="btn">Sign up</button>
+      </div>
+    </div>
+    <div id="auth-msg" class="muted" style="margin-top:8px"></div>
+  </section>
+
+  <section id="app-card" class="card pad hidden">
+    <div class="row" style="justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div class="muted">Signed in as <span id="who"></span></div>
+      <div class="row">
+        <button id="logout" class="btn">Log out</button>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:10px">
+      <button id="btnPageShare" class="btn">Share Page</button>
+      <div id="pageShareZone" style="margin-left:12px"></div>
+    </div>
+
+    <form id="create" class="grid grid-4" autocomplete="off">
+      <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Project launch" required>
+      </div>
+      <div>
+        <label for="date">Date</label>
+        <input id="date" type="date" required>
+      </div>
+      <div>
+        <label for="time">Time (optional)</label>
+        <input id="time" type="time" step="1" placeholder="00:00:00">
+      </div>
+      <div style="display:flex;align-items:flex-end">
+        <button class="btn primary" type="submit">Add</button>
+      </div>
+    </form>
+
+    <div class="row" style="justify-content:space-between;margin-top:10px">
+      <div></div>
+      <div class="row">
+        <button id="deleteSelected" class="btn danger">Delete Selected</button>
+      </div>
+    </div>
+
+    <div id="list" class="list" style="margin-top:10px"></div>
+  </section>
+</div>
+<script src="/client.js" defer></script>
+</body></html>

@@ -1,16 +1,21 @@
 {
-	"name": "countdowns-cloudflare",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"deploy": "wrangler deploy",
-		"dev": "wrangler dev",
-		"start": "wrangler dev",
-		"test": "vitest"
-	},
-	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.8.19",
-		"vitest": "~3.2.0",
-		"wrangler": "^4.34.0"
-	}
+  "name": "countdowns-cloudflare",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev src/index.mjs --config wrangler.toml",
+    "deploy": "wrangler deploy",
+    "test": "vitest",
+    "db:setup": "wrangler d1 execute countdowns-db --local --file=./schema.sql --config wrangler.toml"
+  },
+  "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.8.19",
+    "@cloudflare/workers-types": "^4.20250913.0",
+    "vitest": "~3.2.0",
+    "wrangler": "^4.34.0"
+  }
 }

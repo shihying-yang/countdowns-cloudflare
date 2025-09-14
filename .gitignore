@@ -4,10 +4,10 @@ node_modules
 # Wrangler
 .wrangler/
 .dev.vars
-wrangler.toml
 
 # Build output
 dist/
+tsconfig.tsbuildinfo
 
 # Logs
 *.log

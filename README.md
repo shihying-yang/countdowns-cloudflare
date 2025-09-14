@@ -124,30 +124,45 @@ A simple, self-contained countdown timer application built to run on Cloudflare 
 
 This is a list of potential improvements to enhance the project's maintainability, robustness, and feature set.
 
--   **Separate Frontend Assets**:
+- [x]  **Separate Frontend Assets**:
     -   **What**: Move the embedded HTML, CSS, and client-side JavaScript into their own static files (`public/index.html`, `public/style.css`, etc.).
     -   **Why**: Improves code organization, enables better tooling (syntax highlighting, linting), and separates backend logic from frontend presentation.
 
--   **Add Robust Input Validation**:
+- [ ]  **Add Robust Input Validation**:
     -   **What**: Use a library like Zod to define and enforce schemas for all API request bodies.
     -   **Why**: Centralizes validation, prevents bad data from reaching business logic, and provides clearer error messages.
 
--   **Centralize API Routing**:
+- [ ]  **Centralize API Routing**:
     -   **What**: Replace the `if/else if` routing structure with a dedicated router like itty-router or Hono.
     -   **Why**: Makes API endpoint definitions cleaner, more declarative, and easier to manage as the application grows.
 
--   **Implement Database Migrations**:
+- [ ]  **Implement Database Migrations**:
     -   **What**: Use Wrangler's official D1 migrations feature to manage database schema changes.
     -   **Why**: Allows for version-controlled, automated, and safe evolution of the database schema over time.
 
--   **Add a Testing Suite**:
+- [ ]  **Add a Testing Suite**:
     -   **What**: Implement unit tests for helper functions and integration tests for API endpoints using a framework like Vitest.
     -   **Why**: Ensures code correctness, prevents regressions, and gives confidence when refactoring or adding new features.
 
--   **Externalize Configuration**:
+- [ ]  **Externalize Configuration**:
     -   **What**: Move hardcoded constants (e.g., cookie durations, rate limits) into the `wrangler.toml` file or a `.dev.vars` file for local development.
     -   **Why**: Allows for easy configuration changes between different environments (development, production) without modifying code.
 
--   **Harden Timezone Handling**:
+- [ ]  **Harden Timezone Handling**:
     -   **What**: Ensure all timestamps are consistently handled in UTC. When a user inputs a time, convert it from their local timezone to UTC on the client before sending it to the server. Store all timestamps in the database as UTC (e.g., using the ISO 8601 format with a `Z` suffix).
     -   **Why**: The current implementation can lead to incorrect countdowns for users in different timezones. Storing everything in UTC prevents ambiguity and ensures that countdowns are accurate regardless of where the user or viewers are in the world.
+
+## User Experience & Feature Enhancements (TODO)
+
+-   **Improve API Error Messages**:
+    -   **What**: Map cryptic backend error codes like `INVALID_CREDENTIALS` and `EMAIL_IN_USE` to more user-friendly messages on the frontend (e.g., "Invalid email or password.", "An account with this email already exists.").
+    -   **Why**: Provides a better user experience by giving clear, actionable feedback when something goes wrong.
+
+-   **Implement Password Reset**:
+    -   **What**: Add a "Forgot Password" flow. This typically involves generating a secure, single-use token, sending it to the user's email, and providing a page where they can set a new password.
+    -   **Why**: A critical feature for any application with user accounts.
+
+-   **Create Admin Functionality**:
+    -   **What**: Introduce an "admin" role for users. An admin could have the ability to view all users, reset passwords, or delete user accounts.
+    -   **Why**: Useful for application management and user support.
+    -   **Note**: The database schema is already correctly configured with `ON DELETE CASCADE`, so deleting a user from the `users` table will automatically remove all of their associated countdowns, sessions, and share links.
