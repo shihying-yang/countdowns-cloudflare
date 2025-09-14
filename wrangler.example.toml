@@ -1,0 +1,10 @@
+name = "countdowns-cloudflare"
+main = "src/index.js"
+compatibility_date = "2025-09-06"
+workers_dev = true
+account_id = "__YOUR_ACCOUNT_ID__"
+
+[[d1_databases]]
+binding = "DB"                 # must be DB to match our code (env.DB)
+database_name = "countdowns_db"
+database_id = "__DATABASE_ID__"

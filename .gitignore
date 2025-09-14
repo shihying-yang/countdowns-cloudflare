@@ -1,0 +1,26 @@
+# Dependencies
+node_modules
+
+# Wrangler
+.wrangler/
+.dev.vars
+wrangler.toml
+
+# Build output
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE directories
+.vscode/
+.idea/
+.history/
+
+# OS generated files
+.DS_Store
+Thumbs.db
