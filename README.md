@@ -154,15 +154,15 @@ This is a list of potential improvements to enhance the project's maintainabilit
 
 ## User Experience & Feature Enhancements (TODO)
 
--   **Improve API Error Messages**:
+- [ ]  **Improve API Error Messages**:
     -   **What**: Map cryptic backend error codes like `INVALID_CREDENTIALS` and `EMAIL_IN_USE` to more user-friendly messages on the frontend (e.g., "Invalid email or password.", "An account with this email already exists.").
     -   **Why**: Provides a better user experience by giving clear, actionable feedback when something goes wrong.
 
--   **Implement Password Reset**:
+- [ ]  **Implement Password Reset**:
     -   **What**: Add a "Forgot Password" flow. This typically involves generating a secure, single-use token, sending it to the user's email, and providing a page where they can set a new password.
     -   **Why**: A critical feature for any application with user accounts.
 
--   **Create Admin Functionality**:
+- [ ]  **Create Admin Functionality**:
     -   **What**: Introduce an "admin" role for users. An admin could have the ability to view all users, reset passwords, or delete user accounts.
     -   **Why**: Useful for application management and user support.
     -   **Note**: The database schema is already correctly configured with `ON DELETE CASCADE`, so deleting a user from the `users` table will automatically remove all of their associated countdowns, sessions, and share links.
