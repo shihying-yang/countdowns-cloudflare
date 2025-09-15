@@ -1,0 +1,17 @@
+name = "countdowns-cloudflare"
+main = "src/index.mjs"
+compatibility_date = "2023-11-21"
+
+# This is your Cloudflare account ID.
+# For local development, you can create a .dev.vars file with:
+# CLOUDFLARE_ACCOUNT_ID="<your-account-id>"
+account_id = "${CLOUDFLARE_ACCOUNT_ID}"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "countdowns-db"
+# This is the ID for your production D1 database.
+database_id = "${D1_DATABASE_ID}"
+
+[site]
+bucket = "./public"

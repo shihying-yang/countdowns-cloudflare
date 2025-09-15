@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "wrangler dev src/index.mjs --config wrangler.toml",
-    "deploy": "wrangler deploy",
+    "deploy": "wrangler deploy src/index.mjs --config wrangler.toml",
     "test": "vitest",
     "db:setup": "wrangler d1 execute countdowns-db --local --file=./schema.sql --config wrangler.toml"
   },
